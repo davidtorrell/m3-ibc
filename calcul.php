@@ -13,7 +13,7 @@ $retorn=array(); //declaro variable
 
 function afeigeix_cateogoria($a_categories, $le, &$retorn){
     foreach ($a_categories as $categoria) { // per cada categoria
-        $categoria = trim($categoria);
+        $categoria = trim($categoria); //trec espais en blanc del string
         if (array_search($categoria, $retorn[$le[0]]) === false) { //busco si esta la categoria, sino esta
             array_push($retorn[$le[0]], $categoria); // afeigeixo amb al array.
         }
