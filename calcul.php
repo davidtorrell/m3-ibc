@@ -13,8 +13,9 @@ $retorn=array(); //declaro variable
 
 function afeigeix_cateogoria($a_categories, $le, &$retorn){
     foreach ($a_categories as $categoria) { // per cada categoria
+        $categoria = trim($categoria);
         if (array_search($categoria, $retorn[$le[0]]) === false) { //busco si esta la categoria, sino esta
-            array_push($retorn[$le[0]], trim($categoria)); // afeigeixo amb al array.
+            array_push($retorn[$le[0]], $categoria); // afeigeixo amb al array.
         }
     }
 }
@@ -33,7 +34,6 @@ while (!feof($farxiu)) {
     $a_categories=$le;
     unset($a_categories[0]); // trec comarca
     unset($a_categories[1]); // trec codi centre
-
 
     if (array_key_exists($le[0], $retorn)) {  //existeix la comarca al index de l'array?
         afeigeix_cateogoria($a_categories, $le, $retorn); //crido funcio
